@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Приложение для счета</title>
+    <script>
+        window.onload = initializer;
+        var theCount  = 0;
+
+        function initializer() {
+            document.getElementById("incrementButton").onclick = increaseCount;
+        }
+
+        function increaseCount() {
+            theCount++;
+            document.getElementById("currentCount").innerHTML = theCount;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Щелкните на кнопке для счета</h1>
+    <p>Текущее значение: <span id="currentCount">0</span></p>
+    <button id="incrementButton">Инкрементировать счетчик</button>
+</body>
+</html>
