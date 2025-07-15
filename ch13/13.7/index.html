@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Слайд-шоу средствами JavaScript</title>
+    <style>
+        #carousel {
+          position: absolute;
+          width: 800px;
+          height: 400px;
+          top: 100px;
+          left: 100px;
+        }
+    </style>
+    <script>
+      var slides = [
+          "<div id='slide1'>мой первый слайд<br><img src='image1.jpg'></div>",
+          "<div id='slide2'>мой второй слайд<br><img src='image2.jpg'></div>",
+          "<div id='slide3'>мой третий слайд<br><img src='image3.jpg'></div>",
+      ];
+
+      var currentSlide   = 0;
+      var numberOfSlides = slides.length - 1;
+
+      window.addEventListener('load', loader, false);
+
+      function loader() {
+        changeImage();
+      }
+
+      function changeImage() {
+        console.log('функция changeImage()');
+        if (currentSlide > numberOfSlides) {
+          currentSlide = 0;
+        }
+
+        document.getElementById('carousel').innerHTML = slides[currentSlide];
+        console.log('отображается слайд: ' + currentSlide + ' из ' + numberOfSlides);
+
+        currentSlide++;
+
+        setTimeout(changeImage, 1000)
+      }
+    </script>
+</head>
+<body>
+    <div id="carousel"></div>
+</body>
+</html>
