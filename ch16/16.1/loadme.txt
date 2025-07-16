@@ -1,0 +1,4 @@
+<p>
+  Here is the content that is loaded from the file.<br>
+  This is a content of the 'loadme.txt' file.
+</p>
