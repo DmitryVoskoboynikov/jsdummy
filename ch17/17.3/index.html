@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Получение мультимедийных данных</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            if (navigator.mediaDevices.getUserMedia) {
+                var v = document.getElementById('v');
+
+                var constraints = {video: true, audio: false};
+                navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                    v.srcObject = stream;
+                }).catch(function (err) {
+                    alert('Что-то пошло не так. (код ошибки ' + err + ')');
+                    return;
+                });
+            } else {
+                alert('getUserMedia не поддерживается в вашем браузере!');
+            }
+        });
+    </script>
+</head>
+<body>
+    <video id = "v" autoplay></video>
+</body>
+</html>
