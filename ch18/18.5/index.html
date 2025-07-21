@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JQuery CSS</title>
+  <style>
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#animator').on('click', function() {
+        $('#items').fadeToggle(200);
+        $('#fruits').slideUp(500);
+        $('#wines').toggle(400, 'swing', function() {
+          $('#wines').toggle(400, 'swing');
+        });
+        $('h1').hide();
+        $('h1').slideDown(1000).animate({
+          'color': 'red',
+          'font-size': '100px'
+        }, 1000);
+      });
+    });
+  </script>
+</head>
+<body>
+<h1>Целая куча всего интересного!</h1>
+<table id="things">
+  <tr id="items">
+    <td>элемент 1</td>
+    <td>элемент 2</td>
+    <td>элемент 3</td>
+  </tr>
+  <tr id="fruits">
+    <td>яблоки</td>
+    <td>апельсины</td>
+    <td>лимоны</td>
+  </tr>
+  <tr id="wines">
+    <td>мерло</td>
+    <td>мальбек</td>
+    <td>каберне совиньон</td>
+  </tr>
+</table>
+<form id="tableControl">
+  <button type="button" id="animator">Анимировать</button>
+</form>
+</body>
+</html>

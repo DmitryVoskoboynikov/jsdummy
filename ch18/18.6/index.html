@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Динамическое соответствие</title>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#loadIt').on('click', function() {
+               var fileToLoad = $('#intros').val() + '.txt';
+
+               console.log(fileToLoad);
+               $.ajax({
+                   url: fileToLoad,
+                   success: function(result) {
+                       $('#introtext').html(result);
+                   }
+               })
+            });
+        })
+    </script>
+</head>
+<body>
+    <h1>Выберите желаемый тип приветствия:</h1>
+    <form id="intro-select">
+        <select id="intros">
+            <option value="none">Пожалуйста, выберите</option>
+            <option value="formal">Официальное</option>
+            <option value="friendly">Дружеское</option>
+            <option value="piglatin">Фамильярное</option>
+        </select>
+        <button id="loadIt" type="button">Загрузить!</button>
+    </form>
+    <div id="introtext"></div>
+</body>
+</html>
